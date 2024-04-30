@@ -127,10 +127,10 @@ header {
     width: 90%;
     justify-content: space-between;
 }
-#banner .arrow_left {
+#arrowLeft {
 	left: 10px;
 }
-#banner .arrow_right {
+#arrowRight {
 	right: 10px;
 }
 /* Gestion des points du carrousel */
