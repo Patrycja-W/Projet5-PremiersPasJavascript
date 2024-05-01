@@ -17,16 +17,79 @@ const slides = [
 	}
 ]
 
+console.log(slides)
+
 /* les events listener sur les fleches */
 
 let arrowLeft = document.getElementById("arrowLeft")
 
 arrowLeft.addEventListener("click", () => {
-	console.log("la gauche marche")
+	currentSlide--
+	if (currentSlide < 0 ) {
+		currentSlide = 3
+	}
+	console.log("arrowLeft " + currentSlide);
+	changeSlide(currentSlide);
+	
 })
 
 let arrowRight = document.getElementById("arrowRight")
 
 arrowRight.addEventListener("click", () => {
-	console.log("la droite marche")
+	currentSlide++
+	if (currentSlide > 3) {
+		currentSlide = 0
+	}
+	console.log("arrowRight " + currentSlide);
+	changeSlide(currentSlide);
 })
+
+/* afficher les bullet points */
+
+const dots = document.querySelector(".dots")
+let currentSlide = 0
+console.log("currentSlide " + currentSlide);
+
+
+function displayDots() {
+	for (let i = 0; i < slides.length; i++) {
+		const dot = document.createElement("div");
+		dot.classList.add("dot");
+		dots.appendChild(dot);
+		// if (i == currentSlide ) {
+		// 	dot.classList.add("dot_selected")
+		// }
+	}
+}
+displayDots();
+
+/* chagements des images et textes au click */
+
+let image = document.querySelector(".banner-img")
+let texte = document.querySelector(".banner-text")
+
+/*image.setAttribute("src" , "./assets/images/slideshow/" + slides[currentSlide].image )*/
+
+function changeSlide(index) {
+	image.setAttribute("src" , "./assets/images/slideshow/" + slides[index].image );
+	texte.innerHTML = slides[index].tagLine;
+
+	const toutLesPoints = document.querySelectorAll(".dot");
+	for (let i = 0; i < toutLesPoints.length; i++) {
+		
+		if (i == index) {
+			toutLesPoints[i].classList.add("dot_selected")
+		} else {
+			toutLesPoints[i].classList.remove("dot_selected")
+		}		
+	}
+
+}
+changeSlide(currentSlide);
+
+
+
+
+
+
+
