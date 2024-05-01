@@ -129,9 +129,11 @@ header {
 }
 #arrowLeft {
 	left: 10px;
+	cursor: pointer;
 }
 #arrowRight {
 	right: 10px;
+	cursor: pointer;
 }
 /* Gestion des points du carrousel */
 .dots {
