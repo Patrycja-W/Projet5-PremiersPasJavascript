@@ -17,9 +17,8 @@ const slides = [
 	}
 ]
 
-console.log(slides)
 
-/* les events listener sur les fleches */
+/* les fleches */
 
 let arrowLeft = document.getElementById("arrowLeft")
 
@@ -28,7 +27,7 @@ arrowLeft.addEventListener("click", () => {
 	if (currentSlide < 0 ) {
 		currentSlide = 3
 	}
-	console.log("arrowLeft " + currentSlide);
+
 	changeSlide(currentSlide);
 	
 })
@@ -40,11 +39,11 @@ arrowRight.addEventListener("click", () => {
 	if (currentSlide > 3) {
 		currentSlide = 0
 	}
-	console.log("arrowRight " + currentSlide);
+
 	changeSlide(currentSlide);
 })
 
-/* afficher les bullet points */
+/* les bullet points */
 
 const dots = document.querySelector(".dots")
 let currentSlide = 0
@@ -56,9 +55,6 @@ function displayDots() {
 		const dot = document.createElement("div");
 		dot.classList.add("dot");
 		dots.appendChild(dot);
-		// if (i == currentSlide ) {
-		// 	dot.classList.add("dot_selected")
-		// }
 	}
 }
 displayDots();
@@ -68,7 +64,6 @@ displayDots();
 let image = document.querySelector(".banner-img")
 let texte = document.querySelector(".banner-text")
 
-/*image.setAttribute("src" , "./assets/images/slideshow/" + slides[currentSlide].image )*/
 
 function changeSlide(index) {
 	image.setAttribute("src" , "./assets/images/slideshow/" + slides[index].image );
