@@ -21,6 +21,7 @@ const slides = [
 /* les fleches */
 
 let arrowLeft = document.getElementById("arrowLeft")
+let arrowRight = document.getElementById("arrowRight")
 
 arrowLeft.addEventListener("click", () => {
 	currentSlide--
@@ -31,8 +32,6 @@ arrowLeft.addEventListener("click", () => {
 	changeSlide(currentSlide);
 	
 })
-
-let arrowRight = document.getElementById("arrowRight")
 
 arrowRight.addEventListener("click", () => {
 	currentSlide++
@@ -46,8 +45,6 @@ arrowRight.addEventListener("click", () => {
 /* les bullet points */
 
 const dots = document.querySelector(".dots")
-let currentSlide = 0
-console.log("currentSlide " + currentSlide);
 
 
 function displayDots() {
@@ -63,22 +60,23 @@ displayDots();
 
 let image = document.querySelector(".banner-img")
 let texte = document.querySelector(".banner-text")
+let currentSlide = 0
 
 
 function changeSlide(index) {
+
 	image.setAttribute("src" , "./assets/images/slideshow/" + slides[index].image );
 	texte.innerHTML = slides[index].tagLine;
 
 	const toutLesPoints = document.querySelectorAll(".dot");
 	for (let i = 0; i < toutLesPoints.length; i++) {
 		
-		if (i == index) {
+		if (i === index) {
 			toutLesPoints[i].classList.add("dot_selected")
 		} else {
 			toutLesPoints[i].classList.remove("dot_selected")
 		}		
 	}
-
 }
 changeSlide(currentSlide);
 
